@@ -52,6 +52,13 @@ buttons.forEach((button) => {
                 num2 = parseInt(display.innerHTML.trim());
                 console.log(num1 + operator + num2);
                 display.innerHTML = operate(num1, num2, operator);
+                num1 = parseInt(display.innerHTML);
+                operatorPressed = false;
+            } else if(button.innerHTML.trim() == 'C') {
+                num1 = 0;
+                num2 = 0;
+                operator = '';
+                display.innerHTML = '0';
             } else {
                 num1 = parseInt(display.innerHTML.trim());
                 operator = button.innerHTML.trim();
