@@ -17,6 +17,7 @@ function divide(num1, num2) {
 var num1;
 var num2;
 var operator;
+var operatorPressed = true;
 
 function operate(num1, num2, operator) {
     switch(operator) {
@@ -39,8 +40,16 @@ var displayValue;
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const display = document.querySelector('#display');
-        display.innerHTML.trim();
-        display.innerHTML += button.textContent.trim();
-        displayValue = display.innerHTML;
+        if(operatorPressed == true) {
+            display.innerHTML = '';
+            operatorPressed = false;
+        }
+        if(isNaN(button.innerHTML)) {
+            operatorPressed = true;
+        }else{
+            display.innerHTML.trim();
+            display.innerHTML += button.textContent.trim();
+            displayValue = display.innerHTML;
+        }
     });
 });
