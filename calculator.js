@@ -45,7 +45,17 @@ buttons.forEach((button) => {
             operatorPressed = false;
         }
         if(isNaN(button.innerHTML)) {
+            console.log('operator ' + operator);
             operatorPressed = true;
+            if(button.innerHTML.trim() == '=') {
+                console.log('= pressed');
+                num2 = parseInt(display.innerHTML.trim());
+                console.log(num1 + operator + num2);
+                display.innerHTML = operate(num1, num2, operator);
+            } else {
+                num1 = parseInt(display.innerHTML.trim());
+                operator = button.innerHTML.trim();
+            }
         }else{
             display.innerHTML.trim();
             display.innerHTML += button.textContent.trim();
