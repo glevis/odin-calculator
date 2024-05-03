@@ -32,3 +32,15 @@ function operate(num1, num2, operator) {
             console.log("Invalid operator.");
     }
 }
+
+const buttons = document.querySelectorAll('.calculator-button');
+var displayValue;
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const display = document.querySelector('#display');
+        display.innerHTML.trim();
+        display.innerHTML += button.textContent.trim();
+        displayValue = display.innerHTML;
+    });
+});
